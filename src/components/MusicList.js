@@ -50,7 +50,7 @@ export default function MusicList() {
   console.log(music);
 
   async function refreshMusic() {
-    const discoveredMusic = await getDiscoverMusic("latvia");
+    const discoveredMusic = await getDiscoverMusic("macedonia");
     setMusic(discoveredMusic);
   }
   React.useEffect(() => {
@@ -61,7 +61,7 @@ export default function MusicList() {
     <>
       {music.map(music => (
         <Container key={music}>
-          <ChartPosition>Chart Platz</ChartPosition>
+          <ChartPosition>index+1</ChartPosition>
           <ArtistName>{music.name}</ArtistName>
           <GlobalListeners>Global Listeners: </GlobalListeners>
           <PlayCount>
