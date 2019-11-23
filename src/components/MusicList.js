@@ -14,9 +14,10 @@ const Container = styled.div`
   padding: 15px;
   margin: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-shadow: 3px 6px 16px 0px rgba(102, 102, 102, 1);
   text-align: center;
+  justify-content: space-around;
 `;
 
 const ChartPosition = styled.h1`
@@ -26,9 +27,9 @@ const ChartPosition = styled.h1`
 `;
 
 const ArtistName = styled.h4`
-  font-size: 3rem;
-  margin: 5px;
+  font-size: 2rem;
   color: #333;
+  margin: 5px 0px 0px 5px: 
 `;
 
 const PlayCount = styled.h3`
@@ -40,6 +41,10 @@ const GlobalListeners = styled.h3`
   font-size: 1rem;
   color: #eef1fa;
   margin: 0;
+`;
+
+const ArtistDetails = styled.div`
+  text-align: right;
 `;
 
 //STYLE End
@@ -61,12 +66,16 @@ export default function MusicList() {
     <>
       {music.map(music => (
         <Container key={music}>
-          <ChartPosition>index+1</ChartPosition>
-          <ArtistName>{music.name}</ArtistName>
-          <GlobalListeners>Global Listeners: </GlobalListeners>
-          <PlayCount>
-            {parseInt(music.listeners).toLocaleString("en")}
-          </PlayCount>
+          <div>
+            <ChartPosition>1</ChartPosition>
+          </div>
+          <ArtistDetails>
+            <ArtistName>{music.name}</ArtistName>
+            <GlobalListeners>Global Listeners: </GlobalListeners>
+            <PlayCount>
+              {parseInt(music.listeners).toLocaleString("en")}
+            </PlayCount>
+          </ArtistDetails>
         </Container>
       ))}
     </>
