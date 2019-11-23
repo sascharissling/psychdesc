@@ -91,16 +91,12 @@ export default function Header() {
   const [showSearch, setShowSearch] = React.useState(false);
   const [searchValue, setSearchValue] = React.useState("");
 
-  function handleSearch(value) {
-    setSearchValue(value);
-  }
-
   return (
     <>
       {!showSearch && (
         <AppBar>
-          <Logo text="Top 50 last.fm Artists " />
-          <HeaderCountry>latvia</HeaderCountry>
+          <Logo />
+          <HeaderCountry>{searchValue}</HeaderCountry>
           <SearchButton active={showSearch} onClick={() => setShowSearch(true)}>
             <Search></Search>
           </SearchButton>
@@ -112,8 +108,8 @@ export default function Header() {
             autoFocus
             type="text"
             placeholder="Search for your country..."
-            inputValue={searchValue}
-            onSearch={handleSearch}
+            value={searchValue}
+            onChange={setSearchValue}
           />
           <ClearButton active={showSearch} onClick={() => setShowSearch(false)}>
             <Clear></Clear>

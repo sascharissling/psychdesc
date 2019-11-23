@@ -8,5 +8,5 @@ const AppName = styled.h1`
 `;
 
 export default function Logo({ text }) {
-  return <AppName>{text}</AppName>;
+  return <AppName>Top 50 last.fm Artists</AppName>;
 }

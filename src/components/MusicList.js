@@ -44,13 +44,13 @@ const GlobalListeners = styled.h3`
 
 //STYLE End
 
-export default function MusicList() {
+export default function MusicList({ searchValue }) {
   const [music, setMusic] = React.useState([]);
 
   console.log(music);
 
   async function refreshMusic() {
-    const discoveredMusic = await getDiscoverMusic("macedonia");
+    const discoveredMusic = await getDiscoverMusic(searchValue);
     setMusic(discoveredMusic);
   }
   React.useEffect(() => {
@@ -59,7 +59,7 @@ export default function MusicList() {
 
   return (
     <>
-      {music.map(music, index => (
+      {music.map((music, index) => (
         <Container key={music}>
           <ChartPosition>{index + 1}</ChartPosition>
           <ArtistName>{music.name}</ArtistName>
