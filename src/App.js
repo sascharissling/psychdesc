@@ -12,7 +12,7 @@ const SearchResults = styled.main`
 `;
 
 function App() {
-  const [searchValue, setSearchValue] = React.useState("trinidad+and+tobago");
+  const [searchValue, setSearchValue] = React.useState("congo");
 
   function handleSearch(value) {
     setSearchValue(value);

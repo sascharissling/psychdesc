@@ -47,7 +47,7 @@ const SearchForm = styled.div`
   box-shadow: 0px 0px 21px -2px rgba(31, 31, 31, 1);
 `;
 
-const SearchInput = styled.select`
+const CountryDropdown = styled.select`
   width: 100vw;
   height: 65px;
   background: #383c4d;
@@ -82,12 +82,17 @@ const ClearButton = styled.button`
 
 //STYLE End
 
-export default function Header({ onChange, inputValue }) {
+export default function Header({ onChange }) {
   const [showSearch, setShowSearch] = React.useState(false);
 
   function handleChange(event) {
     const value = event.target.value;
     onChange(value);
+  }
+
+  function handleSubmit(event) {
+    console.log("iwork");
+    event.preventDefault();
   }
 
   return (
@@ -101,17 +106,10 @@ export default function Header({ onChange, inputValue }) {
         </AppBar>
       )}
       {showSearch && (
-        <SearchForm>
-          <SearchInput
-            multi
-            type="text"
-            placeholder="Search for your country..."
-            options={this}
-            onChange={handleChange}
-            value={inputValue}
-          >
+        <SearchForm onSubmit={handleSubmit}>
+          <CountryDropdown multi options={this} onChange={handleChange}>
             <CountryOptions />
-          </SearchInput>
+          </CountryDropdown>
           <ClearButton active={showSearch} onClick={() => setShowSearch(false)}>
             <Clear></Clear>
           </ClearButton>
