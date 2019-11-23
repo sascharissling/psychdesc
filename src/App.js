@@ -12,12 +12,18 @@ const SearchResults = styled.main`
 `;
 
 function App() {
+  const [searchValue, setSearchValue] = React.useState("trinidad+and+tobago");
+
+  function handleSearch(value) {
+    setSearchValue(value);
+  }
+
   return (
     <div className="App">
       <GlobalStyles />
-      <Header />
+      <Header onSearch={handleSearch} inputValue={searchValue} />
       <SearchResults>
-        <MusicList />
+        <MusicList searchValue={searchValue} />
       </SearchResults>
     </div>
   );

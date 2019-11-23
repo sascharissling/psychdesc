@@ -2,13 +2,14 @@ import React from "react";
 import styled from "@emotion/styled";
 import Logo from "./Logo";
 import { keyframes } from "@emotion/core";
+import CountryOptions from "./CountryOptions";
+import LanguageIcon from "@material-ui/icons/Language";
 
-import SearchIcon from "@material-ui/icons/Search";
 import ClearIcon from "@material-ui/icons/Clear";
 
 //STYLE Start
 
-const Search = styled(SearchIcon)`
+const ChooseCountry = styled(LanguageIcon)`
   zoom: 1.5;
   margin: 5px;
   color: #ffe;
@@ -46,7 +47,7 @@ const SearchForm = styled.div`
   box-shadow: 0px 0px 21px -2px rgba(31, 31, 31, 1);
 `;
 
-const SearchInput = styled.input`
+const SearchInput = styled.select`
   width: 100vw;
   height: 65px;
   background: #383c4d;
@@ -79,38 +80,38 @@ const ClearButton = styled.button`
   }
 `;
 
-const HeaderCountry = styled.h1`
-  margin: 5px;
-  color: #e15a5a;
-  font-size: 1.7rem;
-`;
-
 //STYLE End
 
-export default function Header() {
+export default function Header({ onChange, inputValue }) {
   const [showSearch, setShowSearch] = React.useState(false);
-  const [searchValue, setSearchValue] = React.useState("");
+
+  function handleChange(event) {
+    const value = event.target.value;
+    onChange(value);
+  }
 
   return (
     <>
       {!showSearch && (
         <AppBar>
           <Logo />
-          <HeaderCountry>{searchValue}</HeaderCountry>
           <SearchButton active={showSearch} onClick={() => setShowSearch(true)}>
-            <Search></Search>
+            <ChooseCountry />
           </SearchButton>
         </AppBar>
       )}
       {showSearch && (
         <SearchForm>
           <SearchInput
-            autoFocus
+            multi
             type="text"
             placeholder="Search for your country..."
-            value={searchValue}
-            onChange={setSearchValue}
-          />
+            options={this}
+            onChange={handleChange}
+            value={inputValue}
+          >
+            <CountryOptions />
+          </SearchInput>
           <ClearButton active={showSearch} onClick={() => setShowSearch(false)}>
             <Clear></Clear>
           </ClearButton>
