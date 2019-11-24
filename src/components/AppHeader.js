@@ -9,10 +9,27 @@ import ClearIcon from "@material-ui/icons/Clear";
 
 //STYLE Start
 
+const swing = keyframes`
+  0% {
+    color: #ffe;
+  }
+
+  50% {
+    color: #e15a5a;
+  }
+  100% {
+    color: #ffe;
+  }
+
+`;
+
 const ChooseCountry = styled(LanguageIcon)`
   zoom: 1.5;
   margin: 5px;
   color: #ffe;
+  animation-name: ${swing};
+  animation-iteration-count: infinite;
+  animation-duration: 5s;
   &:hover {
     color: slategrey;
   }
@@ -23,6 +40,7 @@ const Clear = styled(ClearIcon)`
   margin: 5px;
   color: grey;
 `;
+
 const SearchButton = styled.button`
   background: transparent;
   outline: none;
