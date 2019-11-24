@@ -12,12 +12,18 @@ const SearchResults = styled.main`
 `;
 
 function App() {
+  const [dropdownValue, setDropdownValue] = React.useState("macedonia");
+
+  function handleSearch(value) {
+    setDropdownValue(value);
+  }
+
   return (
     <div className="App">
       <GlobalStyles />
-      <Header />
+      <Header onSearch={handleSearch} inputValue={dropdownValue} />
       <SearchResults>
-        <MusicList />
+        <MusicList searchValue={dropdownValue} />
       </SearchResults>
     </div>
   );

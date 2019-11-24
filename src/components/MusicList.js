@@ -8,7 +8,6 @@ const Container = styled.div`
   background: transparent linear-gradient(180deg, #9127e9 0%, #e15a5a 100%) 0%
     0% no-repeat padding-box;
   width: 90vw;
-  max-width: 500px;
   height: auto;
   border-radius: 30px;
   padding: 15px;
@@ -42,33 +41,42 @@ const GlobalListeners = styled.h3`
   margin: 0;
 `;
 
+const NoArtists = styled.h3`
+  font-size: 1rem;
+  color: #eef1fa;
+  margin: 0;
+`;
+
 //STYLE End
 
-export default function MusicList() {
+export default function MusicList({ searchValue }) {
   const [music, setMusic] = React.useState([]);
 
-  console.log(music);
-
   async function refreshMusic() {
-    const discoveredMusic = await getDiscoverMusic("macedonia");
+    const discoveredMusic = await getDiscoverMusic(searchValue);
     setMusic(discoveredMusic);
   }
   React.useEffect(() => {
     refreshMusic();
-  }, []);
-
-  return (
-    <>
-      {music.map(music, index => (
-        <Container key={music}>
-          <ChartPosition>{index + 1}</ChartPosition>
-          <ArtistName>{music.name}</ArtistName>
-          <GlobalListeners>Global Listeners: </GlobalListeners>
-          <PlayCount>
-            {parseInt(music.listeners).toLocaleString("en")}
-          </PlayCount>
-        </Container>
-      ))}
-    </>
-  );
+  });
+  if (!music.length) {
+    return (
+      <NoArtists>Sorry, no Charts found. Please try an other place.</NoArtists>
+    );
+  } else {
+    return (
+      <>
+        {music.map((music, index) => (
+          <Container key={index}>
+            <ChartPosition>{index + 1}</ChartPosition>
+            <ArtistName>{music.name}</ArtistName>
+            <GlobalListeners>Global Listeners: </GlobalListeners>
+            <PlayCount>
+              {parseInt(music.listeners).toLocaleString("en")}
+            </PlayCount>
+          </Container>
+        ))}
+      </>
+    );
+  }
 }
