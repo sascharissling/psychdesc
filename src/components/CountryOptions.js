@@ -144,7 +144,7 @@ export default function CountryOptions() {
       <option value="portugal">Portugal</option>
       <option value="qatar">Qatar</option>
       <option value="romania">Romania</option>
-      <option value="russia">Russia</option>
+      <option value="russian+federation">Russia</option>
       <option value="rwanda">Rwanda</option>
       <option value="st+kitts+and+nevis">Saint Kitts and Nevis</option>
       <option value="saint+luca">Saint Lucia</option>

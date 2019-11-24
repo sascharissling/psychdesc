@@ -13,21 +13,30 @@ const Container = styled.div`
   padding: 15px;
   margin: 10px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   box-shadow: 3px 6px 16px 0px rgba(102, 102, 102, 1);
   text-align: center;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ArtistDetails = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: flex-end;
 `;
 
 const ChartPosition = styled.h1`
-  font-size: 2.5rem;
+  font-size: 4rem;
   color: #eef1fa;
   margin: 0;
 `;
 
 const ArtistName = styled.h4`
-  font-size: 3rem;
+  font-size: 2.1rem;
   margin: 5px;
   color: #333;
+  text-align: right;
 `;
 
 const PlayCount = styled.h3`
@@ -69,11 +78,13 @@ export default function MusicList({ searchValue }) {
         {music.map((music, index) => (
           <Container key={index}>
             <ChartPosition>{index + 1}</ChartPosition>
-            <ArtistName>{music.name}</ArtistName>
-            <GlobalListeners>Global Listeners: </GlobalListeners>
-            <PlayCount>
-              {parseInt(music.listeners).toLocaleString("en")}
-            </PlayCount>
+            <ArtistDetails>
+              <ArtistName>{music.name}</ArtistName>
+              <GlobalListeners>Global Listeners: </GlobalListeners>
+              <PlayCount>
+                {parseInt(music.listeners).toLocaleString("en")}
+              </PlayCount>
+            </ArtistDetails>
           </Container>
         ))}
       </>
