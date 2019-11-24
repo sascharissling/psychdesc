@@ -1,7 +1,0 @@
-{
-  "env": {
-    "REACT_APP_API_KEY": "@last-fm-key"
-  }
-}
-
-// http://ws.audioscrobbler.com/2.0/?method=geo.gettopartists&country=${value}&api_key=${process.env.REACT_APP_API_KEY}&format=json
