@@ -60,7 +60,7 @@ export default function MusicList({ searchValue }) {
   React.useEffect(() => {
     refreshMusic();
   });
-  if (!music) {
+  if (!music.length) {
     return (
       <NoArtists>Sorry, no Charts found. Please try an other place.</NoArtists>
     );
@@ -68,7 +68,7 @@ export default function MusicList({ searchValue }) {
     return (
       <>
         {music.map((music, index) => (
-          <Container key={music.index}>
+          <Container key={index}>
             <ChartPosition>{index + 1}</ChartPosition>
             <ArtistName>{music.name}</ArtistName>
             <GlobalListeners>Global Listeners: </GlobalListeners>

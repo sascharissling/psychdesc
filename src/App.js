@@ -12,7 +12,7 @@ const SearchResults = styled.main`
 `;
 
 function App() {
-  const [dropdownValue, setDropdownValue] = React.useState("brazil");
+  const [dropdownValue, setDropdownValue] = React.useState("macedonia");
 
   function handleSearch(value) {
     setDropdownValue(value);

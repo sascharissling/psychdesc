@@ -91,7 +91,6 @@ export default function Header({ onSearch, inputValue }) {
   }
 
   function handleSubmit(event) {
-    console.log("iwork");
     event.preventDefault();
   }
 
@@ -106,7 +105,10 @@ export default function Header({ onSearch, inputValue }) {
         </AppBar>
       )}
       {showSearch && (
-        <SearchForm onSubmit={handleSubmit}>
+        <SearchForm
+          onSubmit={handleSubmit}
+          onChange={() => setShowSearch(false)}
+        >
           <CountryDropdown
             multi
             options={this}
