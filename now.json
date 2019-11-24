@@ -1,7 +1,5 @@
 {
-  "build": {
-    "env": {
-      "REACT_APP_API_KEY": "@last-fm"
-    }
+  "env": {
+    "REACT_APP_API_KEY": "@last-fm"
   }
 }
