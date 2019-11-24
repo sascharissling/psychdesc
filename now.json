@@ -1,5 +1,5 @@
 {
   "env": {
-    "REACT_APP_API_KEY": "@last-fm"
+    "REACT_APP_API_KEY": "@last-fm-key"
   }
 }
