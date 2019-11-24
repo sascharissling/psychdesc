@@ -82,12 +82,12 @@ const ClearButton = styled.button`
 
 //STYLE End
 
-export default function Header({ onChange }) {
+export default function Header({ onSearch, inputValue }) {
   const [showSearch, setShowSearch] = React.useState(false);
 
   function handleChange(event) {
     const value = event.target.value;
-    onChange(value);
+    onSearch(value);
   }
 
   function handleSubmit(event) {
@@ -99,7 +99,7 @@ export default function Header({ onChange }) {
     <>
       {!showSearch && (
         <AppBar>
-          <Logo />
+          <Logo chartCountry={inputValue} />
           <SearchButton active={showSearch} onClick={() => setShowSearch(true)}>
             <ChooseCountry />
           </SearchButton>
@@ -107,7 +107,12 @@ export default function Header({ onChange }) {
       )}
       {showSearch && (
         <SearchForm onSubmit={handleSubmit}>
-          <CountryDropdown multi options={this} onChange={handleChange}>
+          <CountryDropdown
+            multi
+            options={this}
+            onChange={handleChange}
+            value={inputValue}
+          >
             <CountryOptions />
           </CountryDropdown>
           <ClearButton active={showSearch} onClick={() => setShowSearch(false)}>
