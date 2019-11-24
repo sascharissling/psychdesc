@@ -111,7 +111,7 @@ export default function Header({ onSearch, inputValue }) {
         >
           <CountryDropdown
             multi
-            options={this}
+            options={CountryOptions}
             onChange={handleChange}
             value={inputValue}
           >
