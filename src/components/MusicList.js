@@ -8,7 +8,6 @@ const Container = styled.div`
   background: transparent linear-gradient(180deg, #9127e9 0%, #e15a5a 100%) 0%
     0% no-repeat padding-box;
   width: 90vw;
-  max-width: 500px;
   height: auto;
   border-radius: 30px;
   padding: 15px;
