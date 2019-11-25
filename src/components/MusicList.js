@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { getDiscoverMusic } from "../api/music";
+// import Popup from "./Popup";
 
 //STYLE Start
 
@@ -32,6 +33,17 @@ const ChartPosition = styled.h1`
   margin: 0;
 `;
 
+const LastFMLink = styled.a`
+  font-size: 2.1rem;
+  margin: 5px;
+  color: #333;
+  text-align: right;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 const ArtistName = styled.h4`
   font-size: 2.1rem;
   margin: 5px;
@@ -60,6 +72,11 @@ const NoArtists = styled.h3`
 
 export default function MusicList({ searchValue }) {
   const [music, setMusic] = React.useState([]);
+  // const [showPopup, setShowPopup] = React.useState(false);
+
+  // function togglePopup() {
+  //   React.setState({ setShowPopup: true });
+  // }
 
   async function refreshMusic() {
     const discoveredMusic = await getDiscoverMusic(searchValue);
@@ -79,8 +96,12 @@ export default function MusicList({ searchValue }) {
           <Container key={index}>
             <ChartPosition>{index + 1}</ChartPosition>
             <ArtistDetails>
-              <ArtistName>{music.name}</ArtistName>
-              <GlobalListeners>Global Listeners: </GlobalListeners>
+              <ArtistName>
+                <LastFMLink href={music.url} target="_blank">
+                  {music.name}
+                </LastFMLink>
+              </ArtistName>
+              <GlobalListeners>Global Scrobblers: </GlobalListeners>
               <PlayCount>
                 {parseInt(music.listeners).toLocaleString("en")}
               </PlayCount>
