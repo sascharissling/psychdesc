@@ -9,30 +9,9 @@ import ClearIcon from "@material-ui/icons/Clear";
 
 //STYLE Start
 
-const swing = keyframes`
-  0% {
-    color: #ffe;
-  }
-
-  50% {
-    color: #e15a5a;
-  }
-  100% {
-    color: #ffe;
-  }
-
-`;
-
 const ChooseCountry = styled(LanguageIcon)`
-  zoom: 1.5;
   margin: 5px;
   color: #ffe;
-  animation-name: ${swing};
-  animation-iteration-count: infinite;
-  animation-duration: 5s;
-  &:hover {
-    color: slategrey;
-  }
 `;
 
 const Clear = styled(ClearIcon)`
@@ -42,11 +21,22 @@ const Clear = styled(ClearIcon)`
 `;
 
 const SearchButton = styled.button`
-  background: transparent;
+  background: #e15a5a;
   outline: none;
   border: transparent;
   justify-content: center;
+  width: 70px;
+  border-radius: 20px;
+  margin 5px; 
   padding: 0;
+  box-shadow: 3px 6px 16px 0px #333;
+  cursor: pointer;
+  &:hover {
+    background: transparent linear-gradient(180deg, #9127e9 0%, #e15a5a 100%) 0%
+    0% no-repeat padding-box;
+    box-shadow: 1px 1px 7px 0px rgba(102, 102, 102, 1);
+
+  }
 `;
 
 const AppBar = styled.header`
