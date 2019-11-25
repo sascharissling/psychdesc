@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { getDiscoverMusic } from "../api/music";
+// import Popup from "./Popup";
 
 //STYLE Start
 
@@ -71,6 +72,11 @@ const NoArtists = styled.h3`
 
 export default function MusicList({ searchValue }) {
   const [music, setMusic] = React.useState([]);
+  // const [showPopup, setShowPopup] = React.useState(false);
+
+  // function togglePopup() {
+  //   React.setState({ setShowPopup: true });
+  // }
 
   async function refreshMusic() {
     const discoveredMusic = await getDiscoverMusic(searchValue);
