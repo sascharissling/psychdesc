@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 import { getDiscoverMusic } from "../api/music";
-// import Popup from "./Popup";
 
-//STYLE Start
+//STYLE STart
 
 const Container = styled.div`
   background: transparent linear-gradient(180deg, #9127e9 0%, #e15a5a 100%) 0%
@@ -93,7 +92,7 @@ export default function MusicList({ searchValue }) {
     return (
       <>
         {music.map((music, index) => (
-          <Container key={index}>
+          <Container key={music.url}>
             <ChartPosition>{index + 1}</ChartPosition>
             <ArtistDetails>
               <ArtistName>

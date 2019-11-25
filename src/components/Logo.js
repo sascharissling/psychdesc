@@ -18,7 +18,7 @@ export default function Logo({ chartCountry }) {
   return (
     <AppName>
       Top 50 alltime last.fm Artists
-      <CountryName>{chartCountry.replace("+", " ")}</CountryName>
+      <CountryName>{chartCountry.replace(/\+/g, " ")}</CountryName>
     </AppName>
   );
 }
