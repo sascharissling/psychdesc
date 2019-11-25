@@ -80,7 +80,7 @@ export default function MusicList({ searchValue }) {
             <ChartPosition>{index + 1}</ChartPosition>
             <ArtistDetails>
               <ArtistName>{music.name}</ArtistName>
-              <GlobalListeners>Global Listeners: </GlobalListeners>
+              <GlobalListeners>Global Scrobblers: </GlobalListeners>
               <PlayCount>
                 {parseInt(music.listeners).toLocaleString("en")}
               </PlayCount>
